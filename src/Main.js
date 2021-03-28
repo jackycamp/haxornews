@@ -11,8 +11,27 @@ const StoryContainer = styled.div`
     margin-top: 0.5rem;
 `;
 
+const Nav = styled.div`
+    display: flex;
+`;
+
+const NavItem = styled.div`
+    font-family: 'PressStartRegular';
+    color: green;
+    font-size: 0.75rem;
+    padding: 1rem;
+`;
+
+const Header = styled.div`
+    font-family: 'PressStartRegular';
+    color: green;
+    padding: 0.25rem;
+    font-size: 2rem;
+`;
+
 const DevInfo = styled.div`
     font-size: 1rem;
+    padding: 0.25rem;
     color: green;
 `;
 
@@ -48,11 +67,27 @@ export default function Default(){
     return(
         <>
             <Wrapper>
-                <DevInfo>
-                    Total Stories: {totalStories}
-                    {' '}
-                    Stories displaying: {stories.length}
-                </DevInfo>
+                <Nav>
+                    <Header>
+                        Haxornews
+                        
+                    </Header>
+                    <NavItem>
+                        Top Stories
+                    </NavItem>
+                    <NavItem>
+                        Jobs
+                    </NavItem>
+                    <NavItem>
+                        Polls
+                    </NavItem>
+
+                </Nav>
+                    <DevInfo>
+                        Total Stories: {totalStories}
+                        {' '}
+                        Stories displaying: {stories.length}
+                    </DevInfo>
                     {stories.map((story) => (
                         <StoryContainer key={story.id}>
                             <Story {...story} />
