@@ -3,6 +3,7 @@ import {FaAngleRight, FaAngleDown, FaShareAlt, FaComment} from 'react-icons/fa';
 import styled from 'styled-components';
 
 const StoryWrapper = styled.div`
+    font-family: 'TitilliumWeb';
     padding: 1rem;
     background-color: #0c0c0d; 
     border-radius: 10px;
@@ -38,7 +39,7 @@ const Details = styled.div`
 `;
 
 const Author = styled.div`
-    flex-basis: 10%;
+    /* flex-basis: 10%; */
     color: green;
 `;
 
@@ -92,7 +93,8 @@ const CommentIcon = styled(FaComment)`
 `;
 
 export default function Default(props){
-    const {id, author, kids, score, time, title, url} = props;
+    const {id, by, kids, score, time, title, url, descendants} = props;
+    console.log('Story props: ', props);
     const [showDetails, setShowDetails] = useState(false);
 
     const openStory = (e) => {
@@ -124,18 +126,18 @@ export default function Default(props){
         </Header>
         {showDetails && (
             <Details>
-                {/* {author && (
+                {by && (
                     <Author>
-                        {author}
+                        Author: {by}
                     </Author>
-                )} */}
+                )}
                 {time && (
                     <Time>
                         When: {formattedDate}
                     </Time>
                 )}
                 <Comments>
-                    {(kids) ? kids.length : 0}
+                    {(descendants) ? descendants : 0}
                     {' '}
                     <CommentIcon />
                 </Comments>

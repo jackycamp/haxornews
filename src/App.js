@@ -1,10 +1,14 @@
-// import logo from './logo.svg';
 import './App.css';
+import GlobalFonts from './fonts';
 import Main from './Main';
+
 
 function App() {
   return (
-    <Main />
+    <>
+      <GlobalFonts />
+      <Main />
+    </>
   );
 }
 
