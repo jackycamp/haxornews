@@ -20,6 +20,10 @@ const NavItem = styled.div`
     color: green;
     font-size: 0.75rem;
     padding: 1rem;
+    :hover {
+        color: white;
+        cursor: pointer;
+    }
 `;
 
 const Header = styled.div`
@@ -73,13 +77,19 @@ export default function Default(){
                         
                     </Header>
                     <NavItem>
-                        Top Stories
+                        Top
+                    </NavItem>
+                    <NavItem>
+                        New
+                    </NavItem>
+                    <NavItem>
+                        Best
                     </NavItem>
                     <NavItem>
                         Jobs
                     </NavItem>
                     <NavItem>
-                        Polls
+                        Info
                     </NavItem>
 
                 </Nav>
