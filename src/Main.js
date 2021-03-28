@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {API} from './api';
-import Story from './Story';
+import TopStories from './TopStories';
+import Loading from './Loading';
 
 const Wrapper = styled.div`
     padding: 1rem;
-`;
-
-const StoryContainer = styled.div`
-    margin-top: 0.5rem;
 `;
 
 const Nav = styled.div`
@@ -42,6 +39,7 @@ const DevInfo = styled.div`
 export default function Default(){
     const [stories, setStories] = useState([]);
     const [totalStories, setTotalStories] = useState();
+    const [loading, setLoading] = useState(true);
 
     const getStories = async () => {
         const stories = await API.topStories();
@@ -62,6 +60,7 @@ export default function Default(){
 
         }
         setStories(temp);
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -74,7 +73,6 @@ export default function Default(){
                 <Nav>
                     <Header>
                         Haxornews
-                        
                     </Header>
                     <NavItem>
                         Top
@@ -93,16 +91,17 @@ export default function Default(){
                     </NavItem>
 
                 </Nav>
-                    <DevInfo>
+                    {/* <DevInfo>
                         Total Stories: {totalStories}
                         {' '}
                         Stories displaying: {stories.length}
-                    </DevInfo>
-                    {stories.map((story) => (
-                        <StoryContainer key={story.id}>
-                            <Story {...story} />
-                        </StoryContainer>
-                    ))}
+                    </DevInfo> */}
+                    {loading && (
+                        <Loading />
+                    )}
+                    {!loading && (
+                        <TopStories stories={stories}/>
+                    )}
             </Wrapper>
         </>
     );
