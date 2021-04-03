@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import API from './api';
-import TopStories from './TopStories';
-import Loading from './Loading';
+import Top from './Top';
+import New from './New';
+import Best from './Best';
+import Jobs from './Jobs';
+import Info from './Info';
 
 const Wrapper = styled.div`
     padding: 1rem;
@@ -31,46 +33,8 @@ const Header = styled.div`
     font-size: 2rem;
 `;
 
-// const DevInfo = styled.div`
-//     font-size: 1rem;
-//     padding: 0.25rem;
-//     color: green;
-// `;
-
 export default function Default() {
-	const [stories, setStories] = useState([]);
-	const [totalStories, setTotalStories] = useState();
-	const [loading, setLoading] = useState(true);
 	const [view, setView] = useState('top');
-
-	const getStories = async () => {
-		const stories = await API.topStories();
-		setTotalStories(stories.length);
-		const temp = [];
-
-		let i = 0;
-		/* eslint-disable */
-		for (const storyIndex in stories) {
-			const storyId = stories[storyIndex];
-			const story = await API.item(storyId);
-			temp.push(story);
-
-			i++;
-
-			if (i >= 40) {
-				break;
-			}
-		}
-        /* eslint-enable */
-		setStories(temp);
-		setLoading(false);
-	};
-
-	console.log(totalStories);
-
-	useEffect(() => {
-		getStories();
-	}, []);
 
 	return (
 		<>
@@ -109,19 +73,12 @@ export default function Default() {
 					>
 						Info
 					</NavItem>
-
 				</Nav>
-				{/* <DevInfo>
-                        Total Stories: {totalStories}
-                        {' '}
-                        Stories displaying: {stories.length}
-                    </DevInfo> */}
-				{loading && (
-					<Loading />
-				)}
-				{!loading && (
-					<TopStories stories={stories} />
-				)}
+				{view === 'top' && (<Top />)}
+				{view === 'new' && (<New />)}
+				{view === 'best' && (<Best />)}
+				{view === 'jobs' && (<Jobs />)}
+				{view === 'info' && (<Info />)}
 			</Wrapper>
 		</>
 	);
