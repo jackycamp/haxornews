@@ -6,18 +6,16 @@ const StoryContainer = styled.div`
     margin-top: 0.5rem;
 `;
 
-export default function Default(props){
-    const {stories} = props;
+export default function Default(props) {
+	const { stories } = props;
 
-    return(
-        <StoryContainer>
-            {stories.map((story) => (
-                        <StoryContainer key={story.id}>
-                            <Story {...story} />
-                        </StoryContainer>
-                    ))}
-        </StoryContainer>
-    );
-
-
+	return (
+		<StoryContainer>
+			{stories.map((story) => (
+				<StoryContainer key={story.id}>
+					<Story {...story} />
+				</StoryContainer>
+			))}
+		</StoryContainer>
+	);
 }

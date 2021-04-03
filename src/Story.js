@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
-import {FaAngleRight, FaAngleDown, FaShareAlt, FaComment} from 'react-icons/fa';
+import React, { useState } from 'react';
+import {
+	FaAngleRight, FaAngleDown, FaShareAlt, FaComment
+} from 'react-icons/fa';
 import styled from 'styled-components';
 
 const StoryWrapper = styled.div`
@@ -92,62 +94,66 @@ const CommentIcon = styled(FaComment)`
     }
 `;
 
-export default function Default(props){
-    const {id, by, kids, score, time, title, url, descendants} = props;
-    console.log('Story props: ', props);
-    const [showDetails, setShowDetails] = useState(false);
+export default function Default(props) {
+	const {
+		by, score, time, title, url, descendants
+	} = props;
+	console.log('Story props: ', props);
+	const [showDetails, setShowDetails] = useState(false);
 
-    const openStory = (e) => {
-        e.stopPropagation();
-        window.open(url, '', 'width=700,height=800,resizable=yes,top=0,left=800');
+	const openStory = (e) => {
+		e.stopPropagation();
+		window.open(url, '', 'width=700,height=800,resizable=yes,top=0,left=800');
+	};
 
-    };
-    
-    const date = new Date(time * 1000);
-    const hours = date.getHours();
-    const minutes = '0' + date.getMinutes();
-    const seconds = '0' + date.getSeconds();
-    const formattedDate = `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
+	const date = new Date(time * 1000);
+	const hours = date.getHours();
+	const minutes = `0${date.getMinutes()}`;
+	const seconds = `0${date.getSeconds()}`;
+	const formattedDate = `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
 
-    return (
-        <StoryWrapper onClick={() => setShowDetails(!showDetails)}>
-        <Header>
-            {showDetails && (<ChevronDown />)}
-            {!showDetails && ( <ChevronRight />)}
-            <Title>
-                {title}
-            </Title>
-            <Url>
-                    <OpenStory onClick={(e) => {openStory(e)}}/>
-            </Url>
-            <Score>
-                {score}
-            </Score>
-        </Header>
-        {showDetails && (
-            <Details>
-                {by && (
-                    <Author>
-                        Author: {by}
-                    </Author>
-                )}
-                {time && (
-                    <Time>
-                        When: {formattedDate}
-                    </Time>
-                )}
-                <Comments>
-                    {(descendants) ? descendants : 0}
-                    {' '}
-                    <CommentIcon />
-                </Comments>
+	return (
+		<StoryWrapper onClick={() => setShowDetails(!showDetails)}>
+			<Header>
+				{showDetails && (<ChevronDown />)}
+				{!showDetails && (<ChevronRight />)}
+				<Title>
+					{title}
+				</Title>
+				<Url>
+					<OpenStory onClick={(e) => { openStory(e); }} />
+				</Url>
+				<Score>
+					{score}
+				</Score>
+			</Header>
+			{showDetails && (
+				<Details>
+					{by && (
+						<Author>
+							Author:
+							{' '}
+							{by}
+						</Author>
+					)}
+					{time && (
+						<Time>
+							When:
+							{' '}
+							{formattedDate}
+						</Time>
+					)}
+					<Comments>
+						{(descendants) || 0}
+						{' '}
+						<CommentIcon />
+					</Comments>
 
-                {/* <Url>
+					{/* <Url>
                     <OpenStory onClick={(e) => {openStory(e)}}/>
                 </Url> */}
-            </Details>
-        )}
-    </StoryWrapper>
-    );
-
+				</Details>
+			)}
+		</StoryWrapper>
+	);
 }

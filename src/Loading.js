@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import styled, { keyframes } from 'styled-components';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 const Wrapper = styled.div`
     text-align: center;
@@ -21,13 +21,11 @@ const LoadingIcon = styled(AiOutlineLoading3Quarters)`
     animation: ${Spin} 1s infinite;
 `;
 
+export default function Default() {
+	return (
 
-export default function Default(){
-
-    return(
-
-        <Wrapper>
-            <LoadingIcon />
-        </Wrapper>
-    );
+		<Wrapper>
+			<LoadingIcon />
+		</Wrapper>
+	);
 }
