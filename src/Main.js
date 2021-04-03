@@ -13,6 +13,7 @@ const Nav = styled.div`
 `;
 
 const NavItem = styled.div`
+    text-decoration: ${(props) => ((props.selected) ? 'underline' : 'none')};
     font-family: 'PressStartRegular';
     color: green;
     font-size: 0.75rem;
@@ -40,6 +41,7 @@ export default function Default() {
 	const [stories, setStories] = useState([]);
 	const [totalStories, setTotalStories] = useState();
 	const [loading, setLoading] = useState(true);
+	const [view, setView] = useState('top');
 
 	const getStories = async () => {
 		const stories = await API.topStories();
@@ -77,19 +79,34 @@ export default function Default() {
 					<Header>
 						Haxornews
 					</Header>
-					<NavItem>
+					<NavItem
+						selected={view === 'top'}
+						onClick={() => setView('top')}
+					>
 						Top
 					</NavItem>
-					<NavItem>
+					<NavItem
+						selected={view === 'new'}
+						onClick={() => setView('new')}
+					>
 						New
 					</NavItem>
-					<NavItem>
+					<NavItem
+						selected={view === 'best'}
+						onClick={() => setView('best')}
+					>
 						Best
 					</NavItem>
-					<NavItem>
+					<NavItem
+						selected={view === 'jobs'}
+						onClick={() => setView('jobs')}
+					>
 						Jobs
 					</NavItem>
-					<NavItem>
+					<NavItem
+						selected={view === 'info'}
+						onClick={() => setView('info')}
+					>
 						Info
 					</NavItem>
 
