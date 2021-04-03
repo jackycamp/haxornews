@@ -12,23 +12,26 @@ export default class Api {
     		.catch((error) => error)
     )
 
-    // topStories = () => {
-    // 	fetch(`${this.base_url}topstories.json?print=pretty`)
-    // 		.then((response) => response.json())
-    // 		.then((data) => data)
-    // 		.catch((error) => error);
-    // }
+    newStories = () => (
+    	fetch(`${this.base_url}newstories.json?print=pretty`)
+    		.then((response) => response.json())
+    		.then((data) => data)
+    		.catch((error) => error)
+    )
 
-    // item(id) {
-    // 	fetch(`${this.base_url}item/${id}.json?print=pretty`)
-    // 		.then((response) => response.json())
-    // 		.then((data) => data)
-    // 		.catch((error) => error);
-    // }
-    //   topStories = () => fetch(`${this.base_url}topstories.json?print=pretty`)
-    //   		.then((response) => response.json())
-    //   		.then((data) => data)
-    //   		.catch((error) => error);
+    bestStories = () => (
+    	fetch(`${this.base_url}beststories.json?print=pretty`)
+    		.then((response) => response.json())
+    		.then((data) => data)
+    		.catch((error) => error)
+    )
+
+    jobStories = () => (
+    	fetch(`${this.base_url}jobstories.json?print=pretty`)
+    		.then((response) => response.json())
+    		.then((data) => data)
+    		.catch((error) => error)
+    )
 
 	item = (id) => (
 	    fetch(`${this.base_url}item/${id}.json?print=pretty`)
