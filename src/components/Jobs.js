@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import API from './api';
+import API from '../api';
 import Stories from './Stories';
 import Loading from './Loading';
 
@@ -7,8 +7,8 @@ export default function Default() {
 	const [stories, setStories] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	const getTopStories = async () => {
-		const storiesResp = await API.topStories();
+	const getJobStories = async () => {
+		const storiesResp = await API.jobStories();
 
 		let i = 0;
 		const temp = [];
@@ -29,7 +29,7 @@ export default function Default() {
 	};
 
 	useEffect(() => {
-		getTopStories();
+		getJobStories();
 	}, []);
 
 	return (
