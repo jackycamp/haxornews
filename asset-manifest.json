@@ -1,24 +1,22 @@
 {
   "files": {
-    "main.css": "/haxornews/static/css/main.e0664a10.chunk.css",
-    "main.js": "/haxornews/static/js/main.e8d89bf8.chunk.js",
-    "main.js.map": "/haxornews/static/js/main.e8d89bf8.chunk.js.map",
-    "runtime-main.js": "/haxornews/static/js/runtime-main.d09ce47a.js",
-    "runtime-main.js.map": "/haxornews/static/js/runtime-main.d09ce47a.js.map",
+    "main.css": "/haxornews/static/css/main.9a9efcc5.chunk.css",
+    "main.js": "/haxornews/static/js/main.49365331.chunk.js",
+    "main.js.map": "/haxornews/static/js/main.49365331.chunk.js.map",
+    "runtime-main.js": "/haxornews/static/js/runtime-main.c4c0b7c5.js",
+    "runtime-main.js.map": "/haxornews/static/js/runtime-main.c4c0b7c5.js.map",
     "static/js/2.b1f5a30a.chunk.js": "/haxornews/static/js/2.b1f5a30a.chunk.js",
     "static/js/2.b1f5a30a.chunk.js.map": "/haxornews/static/js/2.b1f5a30a.chunk.js.map",
-    "static/js/3.75dcbab3.chunk.js": "/haxornews/static/js/3.75dcbab3.chunk.js",
-    "static/js/3.75dcbab3.chunk.js.map": "/haxornews/static/js/3.75dcbab3.chunk.js.map",
     "index.html": "/haxornews/index.html",
-    "static/css/main.e0664a10.chunk.css.map": "/haxornews/static/css/main.e0664a10.chunk.css.map",
+    "static/css/main.9a9efcc5.chunk.css.map": "/haxornews/static/css/main.9a9efcc5.chunk.css.map",
     "static/js/2.b1f5a30a.chunk.js.LICENSE.txt": "/haxornews/static/js/2.b1f5a30a.chunk.js.LICENSE.txt",
     "static/media/PressStart2P-Regular.5f45b521.ttf": "/haxornews/static/media/PressStart2P-Regular.5f45b521.ttf",
     "static/media/TitilliumWeb-Regular.522ebad2.ttf": "/haxornews/static/media/TitilliumWeb-Regular.522ebad2.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.d09ce47a.js",
+    "static/js/runtime-main.c4c0b7c5.js",
     "static/js/2.b1f5a30a.chunk.js",
-    "static/css/main.e0664a10.chunk.css",
-    "static/js/main.e8d89bf8.chunk.js"
+    "static/css/main.9a9efcc5.chunk.css",
+    "static/js/main.49365331.chunk.js"
   ]
 }
