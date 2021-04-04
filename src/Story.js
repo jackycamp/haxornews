@@ -98,7 +98,6 @@ export default function Default(props) {
 	const {
 		by, score, time, title, url, descendants
 	} = props;
-	console.log('Story props: ', props);
 	const [showDetails, setShowDetails] = useState(false);
 
 	const openStory = (e) => {

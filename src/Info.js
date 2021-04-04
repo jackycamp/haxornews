@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { getHeadings, getDetails } from './getInfo';
 
 const Wrapper = styled.div`
     font-family: 'TitilliumWeb';
@@ -15,40 +16,27 @@ const Header = styled.h1`
 `;
 
 const Info = styled.h3`
+    color: green;
     margin: 0 0 0 2rem;
 
 `;
 
 export default function Default() {
+	const headings = getHeadings();
+	const details = getDetails();
+
 	return (
 		<Wrapper>
-			<Header>
-				Another HackerNews reader? But why?
-			</Header>
-			<Info>
-				I mean don&apos;t you wanna feel like a hackermans when you are browsing HackerNews?
-				Well, that is what we are going for. Trying to bring you that hacker vibe.
-			</Info>
-			<Header>
-				This is pretty cool but could be better..
-			</Header>
-			<Info>
-				If you have any feedback or feature requests feel free to reach out! @insert email here
-			</Info>
-			<Header>
-				Are you going to add anything else?
-			</Header>
-			<Info>
-				Yes! Haxornews is currently under active development with new ideas and features rolling out on a pretty random basis.
-			</Info>
-			<Header>
-				Why can&apos;t I sign in or comment on stories or anything?
-			</Header>
-			<Info>
-				The api that the good folks at Hackernews made publicly available seems to only exist
-				to show real-time data not really for manipulating data. So, unfortunately, this purely exists as
-				as a reader.
-			</Info>
+			{headings.map((heading, index) => (
+				<>
+					<Header>
+						{heading}
+					</Header>
+					<Info>
+						{details[index]}
+					</Info>
+				</>
+			))}
 		</Wrapper>
 	);
 }
