@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import API from './api';
-import TopStories from './TopStories';
+import Stories from './Stories';
 import Loading from './Loading';
 
 export default function Default() {
@@ -38,7 +38,7 @@ export default function Default() {
 				<Loading />
 			)}
 			{!loading && (
-				<TopStories stories={stories} />
+				<Stories stories={stories} />
 
 			)}
 		</>
